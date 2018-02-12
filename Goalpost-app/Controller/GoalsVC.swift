@@ -20,7 +20,8 @@ class GoalsVC: UIViewController {
     }
     // 新增目標
     @IBAction func addGoalBtnPressed(_ sender: Any) {
-        
+        guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
+        presentDetail(createGoalVC)
     }
 }
 // TableView
