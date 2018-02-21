@@ -15,6 +15,20 @@ extension UIViewController {
         // animated 為false 因為已經自己設定了動畫 若設定為true會使用預設的動畫
         present(viewControllerToPresent, animated: false, completion: nil)
     }
+    // 讓下一個視圖dismiss的時候忽略此視圖
+    func presentSecondaryDetail(_ viewControllerToPresent: UIViewController) {
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromRight
+        
+        guard let presentedViewController = presentedViewController else { return }
+        
+        presentedViewController.dismiss(animated: false) {
+            self.view.window?.layer.add(transition, forKey: kCATransition)
+            self.present(viewControllerToPresent, animated: false, completion: nil)
+        }
+    }
     
     func dismissDetail() {
         animated(subType: kCATransitionFromLeft)

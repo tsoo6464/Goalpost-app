@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+// 公開的 每個地方都能使用的變數
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class GoalsVC: UIViewController {
 
