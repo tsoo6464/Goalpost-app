@@ -15,8 +15,12 @@ class GoalsVC: UIViewController {
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var undoConstranint: NSLayoutConstraint!
     // Variables
+    let screenSize = UIScreen.main.bounds
     var goals: [Goal] = []
+    var undoGoal = Goals()
+    var undoCheck: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,14 @@ class GoalsVC: UIViewController {
         super.viewWillAppear(animated)
         fetchCoreDataObjects()
         self.tableView.reloadData()
+    }
+    
+    func undoViewAnimate(constant: CGFloat) {
+        undoConstranint.constant = constant
+        UIView.animate(withDuration: 0.3) {
+            // 更新view狀態
+            self.view.layoutIfNeeded()
+        }
     }
     
     func fetchCoreDataObjects() {
@@ -77,8 +89,10 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
             self.removeGoal(atIndexPath: indexPath)
+            self.undoViewAnimate(constant: 60)
             self.fetchCoreDataObjects()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "ADD 1") { (rowAction, indexPath) in
@@ -91,11 +105,9 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         
         return [deleteAction, addAction]
     }
-    
 }
-
 extension GoalsVC {
-    
+    // 增加完成次數
     func setProgress(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         let chosenGoal = goals[indexPath.row]
@@ -113,19 +125,22 @@ extension GoalsVC {
             debugPrint("Could not set progress: \(error.localizedDescription)")
         }
     }
-    
+    // 刪除資料
     func removeGoal(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        undoGoal.setGoals(description: goals[indexPath.row].goalDescription!, type: goals[indexPath.row].goalType!, completeValue: goals[indexPath.row].goalCompletionValue, progress: goals[indexPath.row].goalProgress)
         managedContext.delete(goals[indexPath.row])
+        print(undoGoal)
         
         do {
             try managedContext.save()
             print("Successfully removed goal!")
+            print(undoGoal)
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
         }
     }
-    
+    // 獲取數據
     func fetch(completion: @escaping (_ success: Bool) -> ()) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Goal")
@@ -138,5 +153,27 @@ extension GoalsVC {
             completion(true)
         }
         
+    }
+    // 復原上一個刪除的項目
+    @IBAction func undoPressed(_ sender: Any) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        let goal = Goal(context: managedContext)
+        goal.goalDescription = undoGoal.description
+        goal.goalType = undoGoal.type
+        goal.goalCompletionValue = undoGoal.completeValue
+        goal.goalProgress = undoGoal.progress
+        goals.append(goal)
+        
+        do {
+            try managedContext.save()
+            self.fetchCoreDataObjects()
+            self.tableView.reloadData()
+            print(goals)
+            print("Successfully undo")
+        } catch {
+            debugPrint("Cloud not undo: \(error.localizedDescription)")
+        }
+        undoViewAnimate(constant: 0)
     }
 }

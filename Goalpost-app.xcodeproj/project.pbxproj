@@ -13,6 +13,7 @@
 		39B469B720344F8C008965C0 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B469B620344F8C008965C0 /* UIViewExt.swift */; };
 		39B469B920346200008965C0 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B469B820346200008965C0 /* UIButtonExt.swift */; };
 		39B469BB203D65A8008965C0 /* FinishGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B469BA203D65A8008965C0 /* FinishGoalVC.swift */; };
+		39B469BD20471595008965C0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B469BC20471595008965C0 /* Goal.swift */; };
 		39B4F810202EE50900F2957B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B4F80F202EE50900F2957B /* AppDelegate.swift */; };
 		39B4F812202EE50900F2957B /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B4F811202EE50900F2957B /* GoalsVC.swift */; };
 		39B4F815202EE50900F2957B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B4F813202EE50900F2957B /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		39B469B620344F8C008965C0 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		39B469B820346200008965C0 /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
 		39B469BA203D65A8008965C0 /* FinishGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishGoalVC.swift; sourceTree = "<group>"; };
+		39B469BC20471595008965C0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		39B4F80C202EE50900F2957B /* Goalpost-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goalpost-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B4F80F202EE50900F2957B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B4F811202EE50900F2957B /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				39B4F81B202EE50900F2957B /* LaunchScreen.storyboard */,
 				39B4F81E202EE50900F2957B /* Info.plist */,
 				39B4F816202EE50900F2957B /* Goalpost_app.xcdatamodeld */,
+				39B469BC20471595008965C0 /* Goal.swift */,
 			);
 			path = "Goalpost-app";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				39B4F818202EE50900F2957B /* Goalpost_app.xcdatamodeld in Sources */,
 				39B469B720344F8C008965C0 /* UIViewExt.swift in Sources */,
 				39B4F812202EE50900F2957B /* GoalsVC.swift in Sources */,
+				39B469BD20471595008965C0 /* Goal.swift in Sources */,
 				39B469B52031CA2C008965C0 /* UIViewControllerExt.swift in Sources */,
 				39B469B920346200008965C0 /* UIButtonExt.swift in Sources */,
 				39B469BB203D65A8008965C0 /* FinishGoalVC.swift in Sources */,

@@ -191,23 +191,56 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRH-In-FkT">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-rP-12f">
+                                        <rect key="frame" x="305" y="-18" width="54" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="UNDO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="undoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jv8-po-kgk"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Removed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x75-hO-0U8">
+                                        <rect key="frame" x="16" y="-11.5" width="116.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="1QH-Zi-tiq"/>
+                                    <constraint firstAttribute="trailing" secondItem="ua8-rP-12f" secondAttribute="trailing" constant="16" id="S1N-H5-NrY"/>
+                                    <constraint firstItem="x75-hO-0U8" firstAttribute="centerY" secondItem="kRH-In-FkT" secondAttribute="centerY" id="p1Z-eF-2Pw"/>
+                                    <constraint firstItem="x75-hO-0U8" firstAttribute="leading" secondItem="kRH-In-FkT" secondAttribute="leading" constant="16" id="xRi-da-T6F"/>
+                                    <constraint firstItem="ua8-rP-12f" firstAttribute="centerY" secondItem="kRH-In-FkT" secondAttribute="centerY" id="ymH-sG-Gx8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RQM-qo-uS8" firstAttribute="bottom" secondItem="eEi-es-Buf" secondAttribute="bottom" id="CA0-sC-zvi"/>
                             <constraint firstItem="GHm-TT-e1v" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IVR-cU-LXI"/>
                             <constraint firstItem="LyC-tS-qPV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ST3-UB-IwP"/>
+                            <constraint firstItem="kRH-In-FkT" firstAttribute="bottom" secondItem="eEi-es-Buf" secondAttribute="bottom" id="TE9-vT-OCp"/>
                             <constraint firstItem="eEi-es-Buf" firstAttribute="trailing" secondItem="GHm-TT-e1v" secondAttribute="trailing" id="X38-PN-ssD"/>
+                            <constraint firstItem="kRH-In-FkT" firstAttribute="leading" secondItem="eEi-es-Buf" secondAttribute="leading" id="Xs6-sl-DSf"/>
                             <constraint firstItem="RQM-qo-uS8" firstAttribute="leading" secondItem="eEi-es-Buf" secondAttribute="leading" id="YcD-MQ-mZV"/>
                             <constraint firstItem="RQM-qo-uS8" firstAttribute="trailing" secondItem="eEi-es-Buf" secondAttribute="trailing" id="dc0-zF-ccs"/>
+                            <constraint firstItem="kRH-In-FkT" firstAttribute="trailing" secondItem="eEi-es-Buf" secondAttribute="trailing" id="mDj-hr-hbB"/>
                             <constraint firstItem="GHm-TT-e1v" firstAttribute="leading" secondItem="eEi-es-Buf" secondAttribute="leading" id="oH2-zm-YTx"/>
                             <constraint firstItem="RQM-qo-uS8" firstAttribute="top" secondItem="GHm-TT-e1v" secondAttribute="bottom" id="rsE-NJ-QGj"/>
+                            <constraint firstItem="kRH-In-FkT" firstAttribute="top" secondItem="RQM-qo-uS8" secondAttribute="bottom" id="uXs-if-3MI"/>
                             <constraint firstItem="LyC-tS-qPV" firstAttribute="top" secondItem="GHm-TT-e1v" secondAttribute="bottom" constant="75" id="wH5-F4-duU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eEi-es-Buf"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="RQM-qo-uS8" id="eCz-ox-UMY"/>
+                        <outlet property="undoConstranint" destination="1QH-Zi-tiq" id="wuK-WG-zTn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
