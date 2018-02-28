@@ -53,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39B469BE20475A62008965C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39B469BC20471595008965C0 /* Goal.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		39B4F803202EE50900F2957B = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +80,7 @@
 		39B4F80E202EE50900F2957B /* Goalpost-app */ = {
 			isa = PBXGroup;
 			children = (
+				39B469BE20475A62008965C0 /* Model */,
 				39B4F827202EE55100F2957B /* Extensions */,
 				39B4F826202EE54800F2957B /* Enums */,
 				39B4F825202EE54400F2957B /* View */,
@@ -82,7 +91,6 @@
 				39B4F81B202EE50900F2957B /* LaunchScreen.storyboard */,
 				39B4F81E202EE50900F2957B /* Info.plist */,
 				39B4F816202EE50900F2957B /* Goalpost_app.xcdatamodeld */,
-				39B469BC20471595008965C0 /* Goal.swift */,
 			);
 			path = "Goalpost-app";
 			sourceTree = "<group>";
